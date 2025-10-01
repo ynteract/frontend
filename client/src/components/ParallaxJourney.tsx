@@ -124,22 +124,22 @@ export default function ParallaxJourney() {
   const opacity2 = useTransform(scrollYProgress, [0.3, 0.45, 0.65], [0, 1, 0]);
   const opacity3 = useTransform(scrollYProgress, [0.6, 0.75, 1], [0, 1, 1]);
 
-  const scale1 = useTransform(scrollYProgress, [0, 0.35], [1, 0.9]);
-  const scale2 = useTransform(scrollYProgress, [0.3, 0.65], [0.9, 1]);
-  const scale3 = useTransform(scrollYProgress, [0.6, 1], [0.9, 1]);
+  const scale1 = useTransform(scrollYProgress, [0, 0.35], [1, 0.98]);
+  const scale2 = useTransform(scrollYProgress, [0.3, 0.65], [0.98, 1]);
+  const scale3 = useTransform(scrollYProgress, [0.6, 1], [0.98, 1]);
 
   return (
     <div ref={containerRef} className="relative bg-background" style={{ height: "500vh", position: "relative" }}>
-      <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden relative">
+      <div className="sticky top-0 h-screen flex items-center justify-center overflow-y-auto md:overflow-hidden relative">
         
         {/* Section 1: Signal Analysis Lab */}
         <motion.section
           style={{ opacity: opacity1, scale: scale1 }}
-          className="absolute inset-0 flex items-center justify-center"
+          className="absolute inset-0 flex items-center justify-center overflow-y-auto md:overflow-visible"
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 md:py-12">
             <motion.h2 
-              className="font-heading text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-center px-4"
+              className="font-heading text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4 md:mb-6 text-center px-2"
               data-testid="text-section-analysis"
             >
               We analyze<br />
@@ -150,7 +150,7 @@ export default function ParallaxJourney() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="text-base md:text-lg text-muted-foreground mb-12 max-w-3xl mx-auto text-center px-4"
+              className="text-sm md:text-base lg:text-lg text-muted-foreground mb-8 md:mb-12 max-w-3xl mx-auto text-center px-2"
             >
               Five key signals that reveal what customers really think—helping sales reps close more deals.
             </motion.p>
@@ -300,11 +300,11 @@ export default function ParallaxJourney() {
         {/* Section 2: Live Coaching Console */}
         <motion.section
           style={{ opacity: opacity2, scale: scale2 }}
-          className="absolute inset-0 flex items-center justify-center"
+          className="absolute inset-0 flex items-center justify-center overflow-y-auto md:overflow-visible"
         >
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 md:py-12">
             <motion.h2 
-              className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8 text-center"
+              className="font-heading text-2xl md:text-4xl lg:text-6xl font-bold tracking-tight mb-4 md:mb-6 text-center px-2"
               data-testid="text-section-guidance"
             >
               We guide<br />
@@ -315,15 +315,15 @@ export default function ParallaxJourney() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="text-lg md:text-xl text-muted-foreground mb-12 text-center max-w-3xl mx-auto"
+              className="text-sm md:text-base lg:text-lg text-muted-foreground mb-6 md:mb-8 text-center max-w-3xl mx-auto px-2"
             >
               Real-time alerts that turn customer signals into sales opportunities.
             </motion.p>
 
             {/* Console-Style Layout */}
-            <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-5xl mx-auto">
               {/* Live Call Feed */}
-              <div className="rounded-2xl border-2 border-primary/30 bg-card/50 p-6 relative overflow-hidden">
+              <div className="rounded-xl md:rounded-2xl border-2 border-primary/30 bg-card/50 p-4 md:p-6 relative overflow-hidden">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="flex items-center gap-2">
                     <motion.div
@@ -456,11 +456,11 @@ export default function ParallaxJourney() {
         {/* Section 3: Performance Dashboard */}
         <motion.section
           style={{ opacity: opacity3, scale: scale3 }}
-          className="absolute inset-0 flex items-center justify-center"
+          className="absolute inset-0 flex items-center justify-center overflow-y-auto md:overflow-visible"
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 md:py-12">
             <motion.h2 
-              className="font-heading text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 text-center px-4"
+              className="font-heading text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-3 md:mb-4 text-center px-2"
               data-testid="text-section-improvement"
             >
               We boost<br />
@@ -471,13 +471,13 @@ export default function ParallaxJourney() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="text-lg md:text-xl text-muted-foreground mb-8 text-center max-w-2xl mx-auto px-4"
+              className="text-sm md:text-base lg:text-lg text-muted-foreground mb-6 md:mb-8 text-center max-w-2xl mx-auto px-2"
             >
               Real-time coaching insights that transform your sales team.
             </motion.p>
 
             {/* Performance Metrics Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-6xl mx-auto mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4 max-w-6xl mx-auto mb-6 md:mb-8">
               {improvementInsights.map((insight, index) => {
                 const isPositive = insight.type === 'positive';
                 const isNegative = insight.type === 'negative';
@@ -491,7 +491,7 @@ export default function ParallaxJourney() {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    className={`p-4 rounded-xl border-2 transition-all cursor-pointer ${
+                    className={`p-3 md:p-4 rounded-lg md:rounded-xl border-2 transition-all cursor-pointer ${
                       activeInsight === index 
                         ? `bg-card ${borderColor} shadow-lg scale-105` 
                         : `bg-card/50 border-border hover:${borderColor} hover:bg-card/70`
@@ -539,7 +539,7 @@ export default function ParallaxJourney() {
               key={activeInsight}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className={`max-w-3xl mx-auto bg-card rounded-xl border-2 p-6 ${
+              className={`max-w-3xl mx-auto bg-card rounded-lg md:rounded-xl border-2 p-4 md:p-6 ${
                 improvementInsights[activeInsight].type === 'negative' 
                   ? 'border-red-500/30' 
                   : improvementInsights[activeInsight].type === 'positive'
