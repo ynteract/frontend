@@ -20,7 +20,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center space-x-2" data-testid="link-home">
             <div className="font-heading text-2xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent">
-              ynteract
+              Ynteract
             </div>
           </Link>
 

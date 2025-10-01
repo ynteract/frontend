@@ -115,7 +115,7 @@ export default function ParallaxJourney() {
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <motion.h2 
-              className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8 text-center"
+              className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8 text-center px-4"
               data-testid="text-section-analysis"
             >
               We analyze<br />
@@ -134,9 +134,9 @@ export default function ParallaxJourney() {
             {/* Circular Signal Visualization */}
             <div className="relative max-w-4xl mx-auto">
               {/* Center Hub */}
-              <div className="absolute inset-0 flex items-center justify-center">
+              <div className="absolute inset-0 flex items-center justify-center z-20">
                 <motion.div 
-                  className="w-32 h-32 md:w-40 md:h-40 rounded-full bg-primary/20 border-2 border-primary flex flex-col items-center justify-center relative"
+                  className="w-36 h-36 md:w-44 md:h-44 rounded-full bg-primary/20 border-2 border-primary flex flex-col items-center justify-center relative"
                   animate={{
                     scale: [1, 1.05, 1],
                   }}
@@ -146,16 +146,16 @@ export default function ParallaxJourney() {
                   }}
                 >
                   <Brain className="w-8 h-8 md:w-10 md:h-10 text-primary mb-1" />
-                  <span className="text-xs md:text-sm font-bold text-primary">AI Fusion</span>
-                  <span className="text-2xl md:text-3xl font-bold text-primary mt-1">98%</span>
+                  <span className="text-xs font-bold text-primary">AI Fusion</span>
+                  <span className="text-2xl md:text-3xl font-bold text-primary">98%</span>
                 </motion.div>
               </div>
 
               {/* Signal Nodes in Circular Pattern */}
-              <div className="relative h-[500px] md:h-[600px] w-full">
+              <div className="relative h-[550px] md:h-[650px] w-full">
                 {analysisModalities.slice(0, 4).map((modality, index) => {
                   const angle = (index * 90) - 90; // Start from top
-                  const radius = 200;
+                  const radius = 220;
                   const x = radius * Math.cos((angle * Math.PI) / 180);
                   const y = radius * Math.sin((angle * Math.PI) / 180);
 

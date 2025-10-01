@@ -21,7 +21,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
           <div className="lg:col-span-2">
             <div className="font-heading text-2xl font-bold bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent mb-4">
-              ynteract
+              Ynteract
             </div>
             <p className="text-muted-foreground mb-6 max-w-sm">
               AI-powered coaching for live sales conversations. Real-time guidance that shapes behavior in the moment.
@@ -57,7 +57,7 @@ export default function Footer() {
 
         <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} ynteract. All rights reserved.
+            © {new Date().getFullYear()} Ynteract. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm">
             <a href="#" className="text-muted-foreground hover:text-primary transition-colors" data-testid="link-privacy">
