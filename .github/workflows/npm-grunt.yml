@@ -1,36 +1,43 @@
-name: NodeJS with Grunt
+name: Vite Build and Deploy
 
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 permissions:
-  contents: write
-
+  contents: write   # needed to push to gh-pages
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x, 22.x]
+
     steps:
       - uses: actions/checkout@v4
 
-      - name: Use Node.js
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
-          node-version: 22.x   # or whatever Node you prefer
+          node-version: ${{ matrix.node-version }}
           cache: 'npm'
 
       - name: Install dependencies
         run: npm install
 
       - name: Build
-        run: npm run build -- --base=/frontend/
+        run: |
+          if [ "${{ matrix.node-version }}" = "22.x" ]; then
+            npx vite build --base=/frontend/
+          else
+            npm run build
+          fi
 
       - name: Deploy to GitHub Pages
+        if: matrix.node-version == '22.x' && github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/public
+          publish_dir: ./dist
