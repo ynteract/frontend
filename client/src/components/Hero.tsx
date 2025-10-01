@@ -24,7 +24,7 @@ export default function Hero() {
           transition={{ duration: 1, ease: "easeOut" }}
           className="font-heading text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight mb-8"
         >
-          AI Coaching.
+          Human Interaction Analysis.
           <br />
           <span className="text-primary">In Real Time.</span>
         </motion.h1>
