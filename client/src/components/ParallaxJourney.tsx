@@ -131,102 +131,143 @@ export default function ParallaxJourney() {
               Five key signals that reveal what customers really think—helping sales reps close more deals.
             </motion.p>
 
-            {/* Circular Signal Visualization */}
-            <div className="relative max-w-4xl mx-auto">
-              {/* Center Hub */}
-              <div className="absolute inset-0 flex items-center justify-center z-20">
-                <motion.div 
-                  className="w-36 h-36 md:w-44 md:h-44 rounded-full bg-primary/20 border-2 border-primary flex flex-col items-center justify-center relative"
-                  animate={{
-                    scale: [1, 1.05, 1],
-                  }}
-                  transition={{
-                    duration: 3,
-                    repeat: Infinity,
-                  }}
+            {/* Grid Signal Visualization */}
+            <div className="max-w-5xl mx-auto">
+              {/* Top Row - Facial */}
+              <div className="flex justify-center mb-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0, type: "spring" }}
+                  className="p-5 rounded-xl bg-card border-2 border-primary/30 hover:border-primary transition-all hover:scale-105 w-64"
                 >
-                  <Brain className="w-8 h-8 md:w-10 md:h-10 text-primary mb-1" />
-                  <span className="text-xs font-bold text-primary">AI Fusion</span>
-                  <span className="text-2xl md:text-3xl font-bold text-primary">98%</span>
+                  <div className="flex items-center gap-3 mb-2">
+                    <motion.div
+                      className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center relative"
+                      animate={{ scale: [1, 1.1, 1] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                    >
+                      <Eye className="w-5 h-5 text-primary" />
+                      <motion.div
+                        className="absolute inset-0 rounded-full border-2 border-primary/40"
+                        animate={{ scale: [1, 1.8], opacity: [0.6, 0] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                      />
+                    </motion.div>
+                    <div className="flex-1">
+                      <h3 className="font-bold text-sm">Facial</h3>
+                      <p className="text-2xl font-bold text-primary">94%</p>
+                    </div>
+                  </div>
+                  <p className="text-xs text-muted-foreground">Micro-expressions & emotional cues</p>
                 </motion.div>
               </div>
 
-              {/* Signal Nodes in Circular Pattern */}
-              <div className="relative h-[500px] md:h-[600px] w-full">
-                {analysisModalities.slice(0, 4).map((modality, index) => {
-                  const angle = (index * 90) - 90; // Start from top
-                  const radius = 220;
-                  const x = radius * Math.cos((angle * Math.PI) / 180);
-                  const y = radius * Math.sin((angle * Math.PI) / 180);
-
-                  return (
+              {/* Middle Row - Verbal, AI Fusion, Posture */}
+              <div className="flex justify-center items-center gap-6 mb-6">
+                {/* Verbal */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3, type: "spring" }}
+                  className="p-5 rounded-xl bg-card border-2 border-primary/30 hover:border-primary transition-all hover:scale-105 w-64"
+                >
+                  <div className="flex items-center gap-3 mb-2">
                     <motion.div
-                      key={modality.title}
-                      initial={{ opacity: 0, scale: 0 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: modality.delay, type: "spring" }}
-                      className="absolute cursor-pointer group"
-                      style={{
-                        top: `calc(50% + ${y}px)`,
-                        left: `calc(50% + ${x}px)`,
-                        transform: 'translate(-50%, -50%)',
-                      }}
+                      className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center relative"
+                      animate={{ scale: [1, 1.1, 1] }}
+                      transition={{ duration: 2, repeat: Infinity, delay: 1.2 }}
                     >
-                      {/* Connecting Line */}
+                      <MessageSquare className="w-5 h-5 text-primary" />
                       <motion.div
-                        className="absolute top-1/2 left-1/2 h-0.5 bg-primary/30 origin-left"
-                        style={{
-                          width: `${radius}px`,
-                          transform: `rotate(${angle + 180}deg)`,
-                        }}
-                        initial={{ scaleX: 0 }}
-                        whileInView={{ scaleX: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: modality.delay + 0.3, duration: 0.6 }}
+                        className="absolute inset-0 rounded-full border-2 border-primary/40"
+                        animate={{ scale: [1, 1.8], opacity: [0.6, 0] }}
+                        transition={{ duration: 2, repeat: Infinity, delay: 1.2 }}
                       />
-
-                      {/* Signal Node */}
-                      <motion.div
-                        className="relative z-10 p-6 rounded-2xl bg-card border-2 border-primary/30 hover:border-primary transition-colors min-w-[180px]"
-                        whileHover={{ scale: 1.05, y: -4 }}
-                      >
-                        <div className="flex items-center gap-3 mb-3">
-                          <motion.div
-                            className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center relative"
-                            animate={{
-                              scale: [1, 1.1, 1],
-                            }}
-                            transition={{
-                              duration: 2,
-                              repeat: Infinity,
-                              delay: index * 0.4,
-                            }}
-                          >
-                            <modality.icon className="w-5 h-5 text-primary" />
-                            <motion.div
-                              className="absolute inset-0 rounded-full border-2 border-primary/40"
-                              animate={{
-                                scale: [1, 1.8],
-                                opacity: [0.6, 0],
-                              }}
-                              transition={{
-                                duration: 2,
-                                repeat: Infinity,
-                                delay: index * 0.4,
-                              }}
-                            />
-                          </motion.div>
-                          <div className="flex-1">
-                            <h3 className="font-bold text-sm">{modality.title}</h3>
-                            <p className="text-2xl font-bold text-primary">{modality.value}</p>
-                          </div>
-                        </div>
-                        <p className="text-xs text-muted-foreground">{modality.description}</p>
-                      </motion.div>
                     </motion.div>
-                  );
-                })}
+                    <div className="flex-1">
+                      <h3 className="font-bold text-sm">Verbal</h3>
+                      <p className="text-2xl font-bold text-primary">82%</p>
+                    </div>
+                  </div>
+                  <p className="text-xs text-muted-foreground">Word choice & timing</p>
+                </motion.div>
+
+                {/* AI Fusion Center */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2, type: "spring" }}
+                  animate={{ scale: [1, 1.05, 1] }}
+                  className="w-40 h-40 rounded-full bg-primary/20 border-2 border-primary flex flex-col items-center justify-center"
+                >
+                  <Brain className="w-10 h-10 text-primary mb-1" />
+                  <span className="text-xs font-bold text-primary">AI Fusion</span>
+                  <span className="text-3xl font-bold text-primary">98%</span>
+                </motion.div>
+
+                {/* Posture */}
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.1, type: "spring" }}
+                  className="p-5 rounded-xl bg-card border-2 border-primary/30 hover:border-primary transition-all hover:scale-105 w-64"
+                >
+                  <div className="flex items-center gap-3 mb-2">
+                    <motion.div
+                      className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center relative"
+                      animate={{ scale: [1, 1.1, 1] }}
+                      transition={{ duration: 2, repeat: Infinity, delay: 0.4 }}
+                    >
+                      <Activity className="w-5 h-5 text-primary" />
+                      <motion.div
+                        className="absolute inset-0 rounded-full border-2 border-primary/40"
+                        animate={{ scale: [1, 1.8], opacity: [0.6, 0] }}
+                        transition={{ duration: 2, repeat: Infinity, delay: 0.4 }}
+                      />
+                    </motion.div>
+                    <div className="flex-1">
+                      <h3 className="font-bold text-sm">Posture</h3>
+                      <p className="text-2xl font-bold text-primary">87%</p>
+                    </div>
+                  </div>
+                  <p className="text-xs text-muted-foreground">Body language & gestures</p>
+                </motion.div>
+              </div>
+
+              {/* Bottom Row - Vocal */}
+              <div className="flex justify-center">
+                <motion.div
+                  initial={{ opacity: 0, y: -20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2, type: "spring" }}
+                  className="p-5 rounded-xl bg-card border-2 border-primary/30 hover:border-primary transition-all hover:scale-105 w-64"
+                >
+                  <div className="flex items-center gap-3 mb-2">
+                    <motion.div
+                      className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center relative"
+                      animate={{ scale: [1, 1.1, 1] }}
+                      transition={{ duration: 2, repeat: Infinity, delay: 0.8 }}
+                    >
+                      <Mic className="w-5 h-5 text-primary" />
+                      <motion.div
+                        className="absolute inset-0 rounded-full border-2 border-primary/40"
+                        animate={{ scale: [1, 1.8], opacity: [0.6, 0] }}
+                        transition={{ duration: 2, repeat: Infinity, delay: 0.8 }}
+                      />
+                    </motion.div>
+                    <div className="flex-1">
+                      <h3 className="font-bold text-sm">Vocal</h3>
+                      <p className="text-2xl font-bold text-primary">91%</p>
+                    </div>
+                  </div>
+                  <p className="text-xs text-muted-foreground">Tone, pitch & pacing</p>
+                </motion.div>
               </div>
             </div>
           </div>
