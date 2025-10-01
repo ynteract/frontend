@@ -78,21 +78,45 @@ export default function ParallaxJourney() {
       finding: "You spoke 72% of the time",
       guidance: "Pause after product explanations",
       improvement: "+23%",
-      progressValue: 72
+      progressValue: 72,
+      type: "neutral",
+      phrase: "Let me tell you about all our features..."
     },
     {
       metric: "Engagement Peak",
       finding: "Customer leaned forward at financing mention",
       guidance: "Repeat that framing approach",
       improvement: "+40%",
-      progressValue: 85
+      progressValue: 85,
+      type: "positive",
+      phrase: "We can structure payments around your budget"
     },
     {
       metric: "Trust Signal",
       finding: "Eye contact increased 40% when you slowed pace",
       guidance: "Maintain that rhythm",
       improvement: "+40%",
-      progressValue: 92
+      progressValue: 92,
+      type: "positive",
+      phrase: "Take your time deciding what feels right"
+    },
+    {
+      metric: "Warning Signal",
+      finding: "Customer folded arms when you mentioned 'right now'",
+      guidance: "Remove pressure language—focus on value",
+      improvement: "-35%",
+      progressValue: 35,
+      type: "negative",
+      phrase: "You really need to decide right now to get this deal"
+    },
+    {
+      metric: "Discomfort Detected",
+      finding: "Customer frowned at extended warranty pitch",
+      guidance: "Ask permission before add-ons",
+      improvement: "-28%",
+      progressValue: 28,
+      type: "negative",
+      phrase: "Everyone gets the extended warranty, it's a must-have"
     }
   ];
 
@@ -453,49 +477,61 @@ export default function ParallaxJourney() {
             </motion.p>
 
             {/* Performance Metrics Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto mb-8">
-              {improvementInsights.map((insight, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className={`p-4 rounded-xl border-2 transition-all cursor-pointer ${
-                    activeInsight === index 
-                      ? 'bg-card border-primary shadow-lg scale-105' 
-                      : 'bg-card/50 border-border hover:border-primary/50 hover:bg-card/70'
-                  }`}
-                  onClick={() => setActiveInsight(index)}
-                  data-testid={`card-metric-${index}`}
-                >
-                  {/* Metric Header */}
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-xs font-semibold text-primary">
-                      {insight.improvement}
-                    </span>
-                    <Activity className="w-4 h-4 text-muted-foreground" />
-                  </div>
-
-                  {/* Progress Bar */}
-                  <div className="mb-3">
-                    <div className="flex justify-between items-baseline mb-1">
-                      <h4 className="font-heading text-sm font-bold">{insight.metric}</h4>
-                      <span className="text-xl font-bold text-primary">{insight.progressValue}%</span>
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-6xl mx-auto mb-8">
+              {improvementInsights.map((insight, index) => {
+                const isPositive = insight.type === 'positive';
+                const isNegative = insight.type === 'negative';
+                const borderColor = isPositive ? 'border-green-500/50' : isNegative ? 'border-red-500/50' : 'border-primary/30';
+                const accentColor = isPositive ? 'text-green-500' : isNegative ? 'text-red-500' : 'text-primary';
+                const barColor = isPositive ? 'from-green-500 to-green-400' : isNegative ? 'from-red-500 to-orange-500' : 'from-primary to-primary/60';
+                
+                return (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    className={`p-4 rounded-xl border-2 transition-all cursor-pointer ${
+                      activeInsight === index 
+                        ? `bg-card ${borderColor} shadow-lg scale-105` 
+                        : `bg-card/50 border-border hover:${borderColor} hover:bg-card/70`
+                    }`}
+                    onClick={() => setActiveInsight(index)}
+                    data-testid={`card-metric-${index}`}
+                  >
+                    {/* Metric Header */}
+                    <div className="flex items-center justify-between mb-3">
+                      <span className={`text-xs font-semibold ${accentColor}`}>
+                        {insight.improvement}
+                      </span>
+                      {isNegative ? (
+                        <TrendingUp className="w-4 h-4 text-red-500 rotate-180" />
+                      ) : (
+                        <TrendingUp className={`w-4 h-4 ${isPositive ? 'text-green-500' : 'text-muted-foreground'}`} />
+                      )}
                     </div>
-                    <div className="w-full h-1.5 bg-muted rounded-full overflow-hidden">
-                      <motion.div
-                        className="h-full bg-gradient-to-r from-primary to-primary/60 rounded-full"
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${insight.progressValue}%` }}
-                        transition={{ duration: 1, ease: "easeOut" }}
-                      />
-                    </div>
-                  </div>
 
-                  {/* Insight Details */}
-                  <p className="text-xs text-muted-foreground line-clamp-2">{insight.finding}</p>
-                </motion.div>
-              ))}
+                    {/* Progress Bar */}
+                    <div className="mb-3">
+                      <div className="flex justify-between items-baseline mb-1">
+                        <h4 className="font-heading text-sm font-bold">{insight.metric}</h4>
+                        <span className={`text-xl font-bold ${accentColor}`}>{insight.progressValue}%</span>
+                      </div>
+                      <div className="w-full h-1.5 bg-muted rounded-full overflow-hidden">
+                        <motion.div
+                          className={`h-full bg-gradient-to-r ${barColor} rounded-full`}
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${insight.progressValue}%` }}
+                          transition={{ duration: 1, ease: "easeOut" }}
+                        />
+                      </div>
+                    </div>
+
+                    {/* Insight Details */}
+                    <p className="text-xs text-muted-foreground line-clamp-2">{insight.finding}</p>
+                  </motion.div>
+                );
+              })}
             </div>
 
             {/* Detailed Insight Panel */}
@@ -503,17 +539,52 @@ export default function ParallaxJourney() {
               key={activeInsight}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className="max-w-3xl mx-auto bg-card rounded-xl border-2 border-primary/30 p-6"
+              className={`max-w-3xl mx-auto bg-card rounded-xl border-2 p-6 ${
+                improvementInsights[activeInsight].type === 'negative' 
+                  ? 'border-red-500/30' 
+                  : improvementInsights[activeInsight].type === 'positive'
+                  ? 'border-green-500/30'
+                  : 'border-primary/30'
+              }`}
             >
+              {/* What They Said */}
+              <div className="mb-4 p-4 rounded-lg bg-background/50 border border-border">
+                <div className="flex items-start gap-2 mb-2">
+                  <MessageSquare className="w-4 h-4 text-muted-foreground mt-0.5" />
+                  <span className="text-xs font-semibold text-muted-foreground uppercase">What You Said</span>
+                </div>
+                <p className="text-sm italic">
+                  "{improvementInsights[activeInsight].phrase}"
+                </p>
+              </div>
+
               <div className="flex items-start gap-3 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0">
-                  <Target className="w-5 h-5 text-primary" />
+                <div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${
+                  improvementInsights[activeInsight].type === 'negative' 
+                    ? 'bg-red-500/20' 
+                    : improvementInsights[activeInsight].type === 'positive'
+                    ? 'bg-green-500/20'
+                    : 'bg-primary/20'
+                }`}>
+                  <Target className={`w-5 h-5 ${
+                    improvementInsights[activeInsight].type === 'negative' 
+                      ? 'text-red-500' 
+                      : improvementInsights[activeInsight].type === 'positive'
+                      ? 'text-green-500'
+                      : 'text-primary'
+                  }`} />
                 </div>
                 <div className="flex-1">
                   <h3 className="font-heading text-lg font-bold mb-1">
-                    Coaching Recommendation
+                    {improvementInsights[activeInsight].type === 'negative' ? 'Correction Needed' : 'Coaching Recommendation'}
                   </h3>
-                  <p className="text-base text-primary font-semibold">
+                  <p className={`text-base font-semibold ${
+                    improvementInsights[activeInsight].type === 'negative' 
+                      ? 'text-red-500' 
+                      : improvementInsights[activeInsight].type === 'positive'
+                      ? 'text-green-500'
+                      : 'text-primary'
+                  }`}>
                     {improvementInsights[activeInsight].guidance}
                   </p>
                 </div>
