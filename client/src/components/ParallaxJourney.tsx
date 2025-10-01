@@ -191,12 +191,9 @@ export default function ParallaxJourney() {
                       >
                         <div className="flex items-center gap-3 mb-3">
                           <motion.div
-                            className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center"
+                            className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center relative"
                             animate={{
-                              boxShadow: [
-                                "0 0 0 0 rgba(var(--primary-rgb), 0.4)",
-                                "0 0 0 8px rgba(var(--primary-rgb), 0)",
-                              ],
+                              scale: [1, 1.1, 1],
                             }}
                             transition={{
                               duration: 2,
@@ -205,6 +202,18 @@ export default function ParallaxJourney() {
                             }}
                           >
                             <modality.icon className="w-5 h-5 text-primary" />
+                            <motion.div
+                              className="absolute inset-0 rounded-full border-2 border-primary/40"
+                              animate={{
+                                scale: [1, 1.8],
+                                opacity: [0.6, 0],
+                              }}
+                              transition={{
+                                duration: 2,
+                                repeat: Infinity,
+                                delay: index * 0.4,
+                              }}
+                            />
                           </motion.div>
                           <div className="flex-1">
                             <h3 className="font-bold text-sm">{modality.title}</h3>
