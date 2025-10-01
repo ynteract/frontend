@@ -113,9 +113,9 @@ export default function ParallaxJourney() {
           style={{ opacity: opacity1, scale: scale1 }}
           className="absolute inset-0 flex items-center justify-center"
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12">
             <motion.h2 
-              className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8 text-center px-4"
+              className="font-heading text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 text-center px-4"
               data-testid="text-section-analysis"
             >
               We analyze<br />
@@ -126,7 +126,7 @@ export default function ParallaxJourney() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="text-lg md:text-xl text-muted-foreground mb-16 max-w-3xl mx-auto text-center"
+              className="text-base md:text-lg text-muted-foreground mb-12 max-w-3xl mx-auto text-center px-4"
             >
               Five key signals that reveal what customers really think—helping sales reps close more deals.
             </motion.p>
@@ -152,7 +152,7 @@ export default function ParallaxJourney() {
               </div>
 
               {/* Signal Nodes in Circular Pattern */}
-              <div className="relative h-[550px] md:h-[650px] w-full">
+              <div className="relative h-[500px] md:h-[600px] w-full">
                 {analysisModalities.slice(0, 4).map((modality, index) => {
                   const angle = (index * 90) - 90; // Start from top
                   const radius = 220;
