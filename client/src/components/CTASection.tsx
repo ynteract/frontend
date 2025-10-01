@@ -10,15 +10,15 @@ export default function CTASection() {
           <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-primary/30 to-primary/20 blur-3xl" />
           <div className="relative border border-primary/30 rounded-2xl p-12 bg-card/50 backdrop-blur-sm">
             <h2 className="font-heading text-4xl md:text-5xl font-bold mb-6">
-              Start seeing the <span className="text-primary">why</span> today
+              Transform Sales Conversations <span className="text-primary">In Real Time</span>
             </h2>
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Join leading organizations using ynteract to transform communication insights into meaningful results.
+              We're building the future of behavioral coaching—one conversation at a time. Let's talk about piloting ynteract in your dealership.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact">
                 <Button size="lg" className="group animate-pulse-glow" data-testid="button-cta-demo">
-                  Book a Demo
+                  Book a Meeting
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>

@@ -16,16 +16,16 @@ export default function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
         <div className="animate-slide-in">
           <h1 className="font-heading text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_auto]">
-            See Beyond Words.
+            AI Coaching for<br />Live Sales Conversations
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-12">
-            ynteract reveals the hidden <span className="text-primary font-semibold">why</span> in every conversation—gaze, tone, gestures, and words decoded into clarity.
+            Real-time guidance that reads facial expressions, body language, and vocal tone—turning subtle human signals into actionable coaching that <span className="text-primary font-semibold">shapes behavior in the moment</span>.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link href="/contact">
               <Button size="lg" className="group" data-testid="button-book-demo">
-                Book a Demo
+                Book a Meeting
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
@@ -36,22 +36,6 @@ export default function Hero() {
               </Button>
             </Link>
           </div>
-        </div>
-
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          {[
-            { value: "95%", label: "Accuracy Rate" },
-            { value: "40+", label: "Data Points" },
-            { value: "Real-time", label: "Analysis" },
-            { value: "100%", label: "Privacy First" },
-          ].map((stat, index) => (
-            <div key={index} className="animate-pulse-glow" style={{ animationDelay: `${index * 0.2}s` }}>
-              <div className="text-3xl md:text-4xl font-heading font-bold text-primary" data-testid={`text-stat-${stat.label.toLowerCase().replace(/\s+/g, '-')}`}>
-                {stat.value}
-              </div>
-              <div className="text-sm text-muted-foreground mt-2">{stat.label}</div>
-            </div>
-          ))}
         </div>
       </div>
     </section>

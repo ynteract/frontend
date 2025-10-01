@@ -7,27 +7,27 @@ import layersImage from '@assets/generated_images/Multimodal_analysis_layers_vis
 export default function HowItWorks() {
   const layers = [
     {
-      icon: Mic,
-      title: "Who Spoke",
-      description: "Voice waveform analysis identifies speakers and captures vocal patterns in real-time.",
+      icon: Eye,
+      title: "Facial Expressions & Eye Movements",
+      description: "Track customer reactions: smiles, frowns, eye contact patterns. When a customer's eyes shift away during pricing discussion, the rep gets a subtle alert.",
       color: "from-primary/20",
     },
     {
-      icon: MessageCircle,
-      title: "What Was Said",
-      description: "Natural language processing extracts meaning, sentiment, and key topics from conversations.",
+      icon: Activity,
+      title: "Body Posture & Gestures",
+      description: "Detect leaning forward (engagement) or leaning back (disengagement). A customer shifting uncomfortably when warranties are introduced triggers coaching to redirect.",
       color: "from-primary/30",
     },
     {
-      icon: Activity,
-      title: "How It Was Said",
-      description: "Tone spectrum analysis reveals emotional undertones and communication style shifts.",
+      icon: Mic,
+      title: "Vocal Tone & Pacing",
+      description: "Analyze confidence levels, speaking pace, and tone shifts. If a rep's voice drops in confidence, the system prompts adjustments in delivery.",
       color: "from-primary/40",
     },
     {
-      icon: Eye,
-      title: "Non-Verbal Cues",
-      description: "Gaze tracking and body language analysis uncover engagement and trust signals.",
+      icon: MessageCircle,
+      title: "Word Choice & Speaking Time",
+      description: "Measure listening ratios and strategic questioning. Alert when reps speak 72% of the time, suggesting pauses after product explanations.",
       color: "from-primary/50",
     },
   ];
@@ -44,10 +44,10 @@ export default function HowItWorks() {
               className="text-center mb-16"
             >
               <h1 className="font-heading text-5xl md:text-6xl font-bold mb-6">
-                The Science Behind <span className="text-primary">ynteract</span>
+                How <span className="text-primary">ynteract</span> Guides Sales Reps
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Our multimodal AI analyzes communication across multiple dimensions simultaneously
+                From real-time alerts during conversations to post-meeting behavioral coaching
               </p>
             </motion.div>
 
@@ -94,10 +94,13 @@ export default function HowItWorks() {
               className="border border-primary/30 rounded-2xl p-12 bg-primary/5 text-center"
             >
               <h2 className="font-heading text-3xl font-bold mb-4">
-                Explaining the <span className="text-primary">Why</span>
+                The Complete <span className="text-primary">Coaching Loop</span>
               </h2>
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-6">
+                <strong>During the meeting:</strong> Real-time alerts guide immediate behavior changes—slowing speech, increasing eye contact, shifting body posture toward the customer.
+              </p>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                Our AI doesn't just report what happened—it connects the dots to explain why. By analyzing all communication channels together, we reveal patterns like "Trust dropped here because eye contact decreased while discussing pricing" or "Engagement rose when empathy tone was detected during problem-solving."
+                <strong>After the meeting:</strong> Performance replays show specific moments: "Customer smiled and leaned forward when you emphasized financing options—repeat that framing" or "You spoke 72% of the time—consider pausing after product explanations."
               </p>
             </motion.div>
           </div>

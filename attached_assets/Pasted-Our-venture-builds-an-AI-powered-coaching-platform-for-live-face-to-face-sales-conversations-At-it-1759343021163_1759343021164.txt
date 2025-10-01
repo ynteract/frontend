@@ -1,0 +1,31 @@
+Our venture builds an AI-powered coaching platform for live, face-to-face sales conversations. At its core, the platform interprets human interaction signals—facial expressions, eye movements, body posture, vocal tone, word choice—and translates them into specific, actionable feedback that changes how sales representatives move, speak, and connect.
+
+In practice, this means:
+
+During the meeting, the system delivers subtle, real-time alerts that guide a rep’s actions. For example: “customer leaned back, disengaged,” prompting the rep to re-engage with an open-ended question, or “tone of voice dropped in confidence,” encouraging adjustment in delivery. These nudges create immediate behavioral corrections—slowing speech, increasing eye contact, shifting body posture toward the customer—that strengthen trust.
+
+After the meeting, the rep receives a performance replay, broken down into moments where the customer’s body language or tone shifted. Instead of vague feedback like “build rapport,” the system highlights: “You spoke 72% of the time—consider pausing after product explanations,” or “Customer smiled and leaned forward when you emphasized financing options—repeat that framing.” This turns abstract coaching into clear movement-based training: when to pause, when to lean in, when to change tone.
+
+What makes our venture new is the fusion of modalities into one seamless coaching loop. Most existing platforms stop at transcription or sentiment scoring. Ours integrates how something was said, how it was received, and how the physical interaction unfolded. That means sales reps don’t just see what they said—they see how their actions influenced customer reactions in real time.
+
+Our pilot focus is automotive dealerships, where high-stakes negotiations depend on reading subtle cues. A customer shifting uncomfortably when warranty packages are introduced, or making strong eye contact when monthly payments are mentioned, are movements reps often miss in the pressure of the moment. By surfacing these cues, we help reps adjust their pacing, redirect the conversation, or lean into topics that generate engagement. A small shift—pausing two seconds longer to let a customer respond—can mean the difference between a lost sale and a signed deal.
+
+Beyond dealerships, our system is designed to generalize into other relationship-driven fields:
+
+In healthcare, physicians could adjust posture and tone to strengthen empathy, reducing patient dissatisfaction.
+
+In consulting, client presentations could be fine-tuned by showing when teams lost executive attention.
+
+In education, instructors could adapt teaching style in real time when students disengage.
+
+At its core, our venture doesn’t just make data—it shapes human behavior. We want to create sales reps who:
+
+Listen more than they talk (guided by speaking-time proportions).
+
+Adapt posture and gestures when disengagement is detected.
+
+Modulate tone and pace to maintain confidence and warmth.
+
+Use open-ended questions strategically when customer interest wanes.
+
+By embedding these specific, teachable actions into daily practice, we transform “instinctive” sales skills into measurable, repeatable behaviors. Our ultimate vision is simple: a future where AI helps humans not just close deals, but connect more meaningfully with the people across the table.

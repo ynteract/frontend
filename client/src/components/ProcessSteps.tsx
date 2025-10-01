@@ -7,25 +7,25 @@ const steps = [
   {
     icon: Camera,
     title: "Capture",
-    description: "Record multimodal interaction data including voice, video, and text from any platform.",
+    description: "During live conversations, the system reads facial expressions, eye movements, body posture, vocal tone, and word choice.",
     color: "from-primary/20 to-primary/5",
   },
   {
     icon: Brain,
     title: "Analyze",
-    description: "AI processes gaze patterns, tone shifts, body language, and word choice simultaneously.",
+    description: "AI interprets human interaction signals in real-time, detecting disengagement, confidence shifts, and customer reactions.",
     color: "from-primary/30 to-primary/10",
   },
   {
     icon: MessageSquare,
-    title: "Explain",
-    description: "Uncover the 'why' behind engagement drops, trust signals, and emotional responses.",
+    title: "Guide",
+    description: "Subtle alerts coach reps in the moment: \"customer leaned back\" or \"tone dropped in confidence\"—prompting immediate adjustments.",
     color: "from-primary/40 to-primary/15",
   },
   {
     icon: TrendingUp,
     title: "Improve",
-    description: "Get actionable insights to enhance communication effectiveness and build stronger connections.",
+    description: "After meetings, performance replays show exactly when customer body language shifted, turning abstract coaching into clear, repeatable behaviors.",
     color: "from-primary/50 to-primary/20",
   },
 ];
@@ -42,7 +42,7 @@ export default function ProcessSteps() {
             How <span className="text-primary">ynteract</span> Works
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Four simple steps to transform your communication insights
+            From real-time alerts during meetings to post-conversation performance replays
           </p>
         </div>
 

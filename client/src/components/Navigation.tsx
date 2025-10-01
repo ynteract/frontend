@@ -12,10 +12,6 @@ export default function Navigation() {
     { path: "/about", label: "About" },
     { path: "/solutions", label: "Solutions" },
     { path: "/how-it-works", label: "How It Works" },
-    { path: "/technology", label: "Technology" },
-    { path: "/case-studies", label: "Case Studies" },
-    { path: "/resources", label: "Resources" },
-    { path: "/careers", label: "Careers" },
   ];
 
   return (
@@ -43,7 +39,7 @@ export default function Navigation() {
             ))}
             <Link href="/contact">
               <Button size="sm" className="ml-4" data-testid="button-demo">
-                Book a Demo
+                Book a Meeting
               </Button>
             </Link>
           </div>
@@ -75,7 +71,7 @@ export default function Navigation() {
             ))}
             <Link href="/contact">
               <Button className="w-full" onClick={() => setMobileMenuOpen(false)} data-testid="button-mobile-demo">
-                Book a Demo
+                Book a Meeting
               </Button>
             </Link>
           </div>

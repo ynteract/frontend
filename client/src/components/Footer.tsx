@@ -7,20 +7,11 @@ export default function Footer() {
     Product: [
       { label: "Solutions", path: "/solutions" },
       { label: "How It Works", path: "/how-it-works" },
-      { label: "Technology", path: "/technology" },
-      { label: "Pricing", path: "/contact" },
+      { label: "Contact Us", path: "/contact" },
     ],
     Company: [
       { label: "About Us", path: "/about" },
-      { label: "Careers", path: "/careers" },
-      { label: "Case Studies", path: "/case-studies" },
-      { label: "Contact", path: "/contact" },
-    ],
-    Resources: [
-      { label: "Blog", path: "/resources" },
-      { label: "Whitepapers", path: "/resources" },
-      { label: "Documentation", path: "/resources" },
-      { label: "Support", path: "/contact" },
+      { label: "Book a Meeting", path: "/contact" },
     ],
   };
 
@@ -33,7 +24,7 @@ export default function Footer() {
               ynteract
             </div>
             <p className="text-muted-foreground mb-6 max-w-sm">
-              Understand the why behind every interaction with multimodal AI analysis.
+              AI-powered coaching for live sales conversations. Real-time guidance that shapes behavior in the moment.
             </p>
             <div className="flex gap-3">
               <Button variant="outline" size="icon" className="hover-elevate" data-testid="button-social-twitter">

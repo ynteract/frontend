@@ -7,23 +7,23 @@ export default function About() {
   const values = [
     {
       icon: Target,
-      title: "Clarity",
-      description: "We make complex communication patterns simple and actionable.",
+      title: "Behavioral Focus",
+      description: "Transform abstract coaching into specific, teachable actions: when to pause, when to lean in, when to adjust tone.",
     },
     {
       icon: Eye,
-      title: "Empathy",
-      description: "Understanding human connection drives everything we build.",
+      title: "Real-Time Impact",
+      description: "Guide behavior in the moment, not hours later. Small adjustments create immediate trust-building opportunities.",
     },
     {
       icon: Lightbulb,
-      title: "Innovation",
-      description: "Pushing boundaries of multimodal AI to reveal deeper insights.",
+      title: "Multimodal Fusion",
+      description: "We don't just make data—we shape human behavior by combining voice, facial, postural, and verbal signals.",
     },
     {
       icon: Shield,
-      title: "Integrity",
-      description: "Privacy-first approach with ethical AI at our core.",
+      title: "Measurable Growth",
+      description: "Turn 'instinctive' sales skills into repeatable, measurable behaviors that improve with every conversation.",
     },
   ];
 
@@ -39,10 +39,10 @@ export default function About() {
               className="text-center mb-16"
             >
               <h1 className="font-heading text-5xl md:text-6xl font-bold mb-6">
-                Our <span className="text-primary">Mission</span>
+                Our <span className="text-primary">Vision</span>
               </h1>
               <p className="text-2xl text-muted-foreground max-w-3xl mx-auto">
-                To create a world where technology strengthens empathy and trust in every human interaction.
+                A future where AI helps humans not just close deals, but connect more meaningfully with the people across the table.
               </p>
             </motion.div>
 
@@ -53,12 +53,12 @@ export default function About() {
                 transition={{ delay: 0.2 }}
                 className="space-y-6"
               >
-                <h2 className="font-heading text-3xl font-bold">Our Story</h2>
+                <h2 className="font-heading text-3xl font-bold">What We're Building</h2>
                 <p className="text-lg text-muted-foreground">
-                  ynteract was born from a simple question: Why do some conversations build trust while others break it? Traditional analytics couldn't answer this—they only showed what happened, not why.
+                  We're creating an AI-powered coaching platform that works during live, face-to-face sales conversations. It reads human interaction signals—facial expressions, eye movements, body posture, vocal tone, word choice—and translates them into specific, actionable feedback.
                 </p>
                 <p className="text-lg text-muted-foreground">
-                  We pioneered multimodal AI analysis to decode the full spectrum of human communication: words, tone, gaze, and gestures working together. Today, we help organizations worldwide understand the 'why' behind every interaction.
+                  During meetings, the system delivers subtle real-time alerts that guide behavior: "customer leaned back, disengaged" or "tone dropped in confidence." After meetings, reps get performance replays showing exactly when customer reactions shifted.
                 </p>
               </motion.div>
 
@@ -68,19 +68,19 @@ export default function About() {
                 transition={{ delay: 0.3 }}
                 className="space-y-6"
               >
-                <h2 className="font-heading text-3xl font-bold">Our Vision</h2>
+                <h2 className="font-heading text-3xl font-bold">Why This Matters</h2>
                 <p className="text-lg text-muted-foreground">
-                  We envision a future where every professional has access to the insights that once required years of experience to develop. Where AI doesn't replace human connection—it enhances it.
+                  Most platforms stop at transcription or sentiment scoring. Ours integrates how something was said, how it was received, and how the physical interaction unfolded. Sales reps see how their actions influenced customer reactions in real time.
                 </p>
                 <p className="text-lg text-muted-foreground">
-                  By making communication analysis accessible and actionable, we're building a world where empathy scales, trust deepens, and every interaction becomes an opportunity for growth.
+                  We're starting with automotive dealerships, where high-stakes negotiations depend on reading subtle cues. A customer shifting uncomfortably during warranty discussion, or making strong eye contact at monthly payment mentions—these are movements reps often miss in the pressure of the moment.
                 </p>
               </motion.div>
             </div>
 
             <div className="mb-24">
               <h2 className="font-heading text-4xl font-bold text-center mb-12">
-                Our <span className="text-primary">Values</span>
+                What Drives <span className="text-primary">Our Approach</span>
               </h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {values.map((value, index) => (

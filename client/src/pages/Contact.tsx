@@ -21,8 +21,8 @@ export default function Contact() {
     e.preventDefault();
     console.log("Form submitted:", formData);
     toast({
-      title: "Demo request received!",
-      description: "We'll be in touch within 24 hours.",
+      title: "Meeting request received!",
+      description: "We'll be in touch within 24 hours to schedule.",
     });
     setFormData({ name: "", email: "", company: "", message: "" });
   };
@@ -45,10 +45,10 @@ export default function Contact() {
               className="text-center mb-16"
             >
               <h1 className="font-heading text-5xl md:text-6xl font-bold mb-6">
-                Book a <span className="text-primary">Demo</span>
+                Book a <span className="text-primary">Meeting</span>
               </h1>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                See ynteract in action and discover how we can transform your communication insights
+                Let's discuss how ynteract can transform your dealership's sales conversations with real-time AI coaching
               </p>
             </motion.div>
 
@@ -121,7 +121,7 @@ export default function Contact() {
                   </div>
 
                   <Button type="submit" size="lg" className="w-full" data-testid="button-submit-demo">
-                    Request Demo
+                    Request Meeting
                   </Button>
                 </form>
               </motion.div>
@@ -152,23 +152,23 @@ export default function Contact() {
                 </div>
 
                 <div className="border border-border rounded-2xl p-8 bg-card/30">
-                  <h3 className="font-heading text-xl font-bold mb-4">What to Expect</h3>
+                  <h3 className="font-heading text-xl font-bold mb-4">What We'll Discuss</h3>
                   <ul className="space-y-3 text-muted-foreground">
                     <li className="flex items-start gap-3">
                       <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2" />
-                      <span>30-minute personalized demo tailored to your use case</span>
+                      <span>How real-time coaching works during live sales conversations</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2" />
-                      <span>Live walkthrough of multimodal analysis in action</span>
+                      <span>The signals we capture: facial, postural, vocal, and verbal</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2" />
-                      <span>Q&A with our product experts</span>
+                      <span>Pilot opportunities for automotive dealerships</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2" />
-                      <span>Custom pricing and implementation roadmap</span>
+                      <span>How we're building the future of behavioral coaching</span>
                     </li>
                   </ul>
                 </div>

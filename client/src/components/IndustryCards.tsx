@@ -7,30 +7,30 @@ import { Card, CardContent } from "@/components/ui/card";
 const industries = [
   {
     icon: Briefcase,
-    title: "Sales",
-    description: "Decode buying signals and build trust faster with real-time engagement insights.",
-    stat: "+32% close rate",
+    title: "Automotive Sales",
+    description: "Our pilot focus. In high-stakes dealership negotiations, catch subtle cues—a customer shifting uncomfortably during warranty talk or making strong eye contact at monthly payment mentions.",
+    stat: "Current Focus",
     gradient: "from-primary/10 to-transparent",
   },
   {
     icon: Heart,
     title: "Healthcare",
-    description: "Enhance patient rapport with empathy detection and communication quality metrics.",
-    stat: "95% patient satisfaction",
+    description: "Future application: Physicians adjust posture and tone to strengthen empathy, reducing patient dissatisfaction through real-time behavioral guidance.",
+    stat: "Coming Soon",
     gradient: "from-primary/15 to-transparent",
   },
   {
-    icon: Phone,
-    title: "Customer Service",
-    description: "Identify frustration early and deliver personalized support experiences.",
-    stat: "-45% escalations",
+    icon: Users,
+    title: "Consulting",
+    description: "Future application: Fine-tune client presentations by showing exactly when teams lost executive attention, enabling mid-pitch adjustments.",
+    stat: "Coming Soon",
     gradient: "from-primary/20 to-transparent",
   },
   {
-    icon: Users,
-    title: "Leadership",
-    description: "Develop executive presence through data-driven feedback on tone and body language.",
-    stat: "2x engagement",
+    icon: Phone,
+    title: "Education",
+    description: "Future application: Instructors adapt teaching style in real time when student engagement drops, creating more responsive learning environments.",
+    stat: "Coming Soon",
     gradient: "from-primary/25 to-transparent",
   },
 ];
@@ -44,10 +44,10 @@ export default function IndustryCards() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4">
-            Built for Every <span className="text-primary">Industry</span>
+            Starting with <span className="text-primary">Automotive</span>, Expanding Beyond
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Transform communication across sales, healthcare, customer service, and leadership
+            We're building in dealerships first, then scaling to any relationship-driven field
           </p>
         </div>
 

@@ -10,51 +10,51 @@ export default function Solutions() {
   const solutions = [
     {
       icon: Briefcase,
-      title: "Sales Excellence",
-      description: "Close more deals by understanding buyer engagement patterns and trust signals in real-time.",
+      title: "Automotive Dealerships (Current Pilot)",
+      description: "High-stakes negotiations where reading subtle cues makes the difference. When a customer shifts uncomfortably during warranty packages or makes strong eye contact at monthly payments—ynteract catches what reps miss in the pressure of the moment.",
       features: [
-        "Buying signal detection",
-        "Objection anticipation",
-        "Trust score tracking",
-        "Negotiation coaching",
+        "Real-time alerts: \"customer leaned back, disengaged\"",
+        "Post-meeting replays showing exact moments customer reactions shifted",
+        "Behavioral coaching: when to pause, when to redirect, when to lean in",
+        "Speaking time analysis: balance listening vs. presenting",
       ],
-      results: "+32% close rate, -20% sales cycle",
+      results: "Current development focus",
     },
     {
       icon: Heart,
-      title: "Healthcare Communication",
-      description: "Improve patient outcomes through enhanced empathy detection and communication quality metrics.",
+      title: "Healthcare (Future Application)",
+      description: "Physicians adjust posture and tone to strengthen empathy during patient consultations. The system detects when patients disengage or show confusion, prompting real-time behavioral adjustments.",
       features: [
-        "Empathy score analysis",
-        "Patient engagement tracking",
-        "Communication quality metrics",
-        "Bedside manner insights",
+        "Empathy signal detection in patient interactions",
+        "Posture and tone adjustments for rapport-building",
+        "Patient engagement tracking during consultations",
+        "Communication quality feedback after appointments",
       ],
-      results: "95% patient satisfaction, +40% adherence",
-    },
-    {
-      icon: Phone,
-      title: "Customer Service",
-      description: "Deliver exceptional support by identifying frustration early and personalizing interactions.",
-      features: [
-        "Emotion detection",
-        "Escalation prediction",
-        "Agent performance insights",
-        "Real-time guidance",
-      ],
-      results: "-45% escalations, +25% CSAT",
+      results: "Planned for expansion",
     },
     {
       icon: Users,
-      title: "Leadership Development",
-      description: "Build executive presence through data-driven feedback on tone, body language, and engagement.",
+      title: "Consulting (Future Application)",
+      description: "Client presentations fine-tuned by showing exactly when executive attention drops. Teams adjust pacing, emphasis, and engagement tactics mid-pitch based on real-time body language cues.",
       features: [
-        "Presence meter analysis",
-        "Tone coaching",
-        "Engagement heatmaps",
-        "Impact scoring",
+        "Executive attention tracking during presentations",
+        "Mid-pitch adjustment recommendations",
+        "Team coordination guidance for multi-presenter scenarios",
+        "Post-presentation analysis showing engagement patterns",
       ],
-      results: "2x team engagement, +35% influence",
+      results: "Planned for expansion",
+    },
+    {
+      icon: Phone,
+      title: "Education (Future Application)",
+      description: "Instructors adapt teaching style in real time when student engagement wanes. The system tracks classroom body language and attention patterns, guiding instructional adjustments on the fly.",
+      features: [
+        "Student engagement monitoring across classrooms",
+        "Real-time teaching style adjustment prompts",
+        "Attention pattern analysis for lecture optimization",
+        "Post-class feedback on most effective teaching moments",
+      ],
+      results: "Planned for expansion",
     },
   ];
 
@@ -70,10 +70,10 @@ export default function Solutions() {
               className="text-center mb-16"
             >
               <h1 className="font-heading text-5xl md:text-6xl font-bold mb-6">
-                Solutions for Every <span className="text-primary">Industry</span>
+                Building for <span className="text-primary">Automotive</span>, Scaling Beyond
               </h1>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Tailored multimodal analysis for sales, healthcare, customer service, and leadership
+                Real-time behavioral coaching designed for relationship-driven fields
               </p>
             </motion.div>
 

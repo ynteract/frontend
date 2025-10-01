@@ -9,17 +9,17 @@ export default function ComparisonSection() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const competitors = [
-    { label: "Surface metrics only", hasIt: false },
-    { label: "Flat, static visualizations", hasIt: false },
-    { label: "Limited data points", hasIt: false },
-    { label: "No 'why' explanations", hasIt: false },
+    { label: "Transcription or sentiment scoring only", hasIt: false },
+    { label: "Post-meeting analysis, no real-time guidance", hasIt: false },
+    { label: "No behavioral coaching loop", hasIt: false },
+    { label: "Misses physical interaction signals", hasIt: false },
   ];
 
   const ynteract = [
-    { label: "Multimodal deep analysis", hasIt: true },
-    { label: "3D interactive insights", hasIt: true },
-    { label: "40+ synchronized signals", hasIt: true },
-    { label: "Root cause discovery", hasIt: true },
+    { label: "Real-time alerts during conversations", hasIt: true },
+    { label: "Fusion of voice, facial, postural, and verbal signals", hasIt: true },
+    { label: "Specific, actionable behavioral guidance", hasIt: true },
+    { label: "Shows how actions influenced reactions", hasIt: true },
   ];
 
   return (
@@ -27,10 +27,10 @@ export default function ComparisonSection() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4">
-            Why <span className="text-primary">ynteract</span> is Different
+            What Makes <span className="text-primary">ynteract</span> New
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Unlike competitors who analyze surface metrics, we uncover the root causes
+            The fusion of modalities into one seamless coaching loop—most platforms stop at transcription
           </p>
         </div>
 
