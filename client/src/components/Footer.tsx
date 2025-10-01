@@ -45,10 +45,8 @@ export default function Footer() {
               <ul className="space-y-3">
                 {links.map((link) => (
                   <li key={link.label}>
-                    <Link href={link.path}>
-                      <a className="text-muted-foreground hover:text-primary transition-colors" data-testid={`link-footer-${link.label.toLowerCase().replace(/\s+/g, '-')}`}>
-                        {link.label}
-                      </a>
+                    <Link href={link.path} className="text-muted-foreground hover:text-primary transition-colors" data-testid={`link-footer-${link.label.toLowerCase().replace(/\s+/g, '-')}`}>
+                      {link.label}
                     </Link>
                   </li>
                 ))}

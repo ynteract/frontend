@@ -1,6 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
-import ProcessSteps from "@/components/ProcessSteps";
+import ParallaxJourney from "@/components/ParallaxJourney";
 import IndustryCards from "@/components/IndustryCards";
 import ComparisonSection from "@/components/ComparisonSection";
 import CTASection from "@/components/CTASection";
@@ -12,7 +12,7 @@ export default function Home() {
       <Navigation />
       <main className="pt-16">
         <Hero />
-        <ProcessSteps />
+        <ParallaxJourney />
         <IndustryCards />
         <ComparisonSection />
         <CTASection />
