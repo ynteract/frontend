@@ -166,9 +166,11 @@ export default function ParallaxJourney() {
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ delay: modality.delay, type: "spring" }}
-                      className="absolute top-1/2 left-1/2 cursor-pointer group"
+                      className="absolute cursor-pointer group"
                       style={{
-                        transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
+                        top: `calc(50% + ${y}px)`,
+                        left: `calc(50% + ${x}px)`,
+                        transform: 'translate(-50%, -50%)',
                       }}
                     >
                       {/* Connecting Line */}
