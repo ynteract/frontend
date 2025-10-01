@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
-import { Eye, Activity, Mic, MessageSquare, Brain, Zap, TrendingUp, Target, ArrowRight, Play, Circle, ChevronLeft, ChevronRight } from "lucide-react";
+import { Eye, Activity, Mic, MessageSquare, Brain, Zap, TrendingUp, Target, ArrowRight, Play, Circle, ChevronLeft, ChevronRight, CheckCircle2, Users, BarChart3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 
@@ -377,14 +377,14 @@ export default function ParallaxJourney() {
           </div>
         </motion.section>
 
-        {/* Section 3: Performance Insights Carousel */}
+        {/* Section 3: Performance Dashboard */}
         <motion.section
           style={{ opacity: opacity3, scale: scale3 }}
           className="absolute inset-0 flex items-center justify-center"
         >
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8">
             <motion.h2 
-              className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8 text-center"
+              className="font-heading text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 text-center px-4"
               data-testid="text-section-improvement"
             >
               We boost<br />
@@ -395,148 +395,117 @@ export default function ParallaxJourney() {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="text-lg md:text-xl text-muted-foreground mb-12 text-center max-w-3xl mx-auto"
+              className="text-lg md:text-xl text-muted-foreground mb-8 text-center max-w-2xl mx-auto px-4"
             >
-              Post-meeting insights that transform every rep into a top performer.
+              Real-time coaching insights that transform your sales team.
             </motion.p>
 
-            {/* Insight Carousel */}
-            <div className="relative max-w-3xl mx-auto">
-              <motion.div
-                key={activeInsight}
-                initial={{ opacity: 0, x: 100 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -100 }}
-                transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                className="p-8 md:p-10 rounded-3xl bg-card border-2 border-primary/30 relative"
-              >
-                {/* Progress Ring */}
-                <div className="flex flex-col md:flex-row items-center gap-8 mb-6">
-                  <div className="relative">
-                    <svg className="w-32 h-32 -rotate-90">
-                      <circle
-                        cx="64"
-                        cy="64"
-                        r="56"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="8"
-                        className="text-muted"
-                      />
-                      <motion.circle
-                        cx="64"
-                        cy="64"
-                        r="56"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="8"
-                        strokeDasharray={`${2 * Math.PI * 56}`}
-                        strokeDashoffset={`${2 * Math.PI * 56 * (1 - improvementInsights[activeInsight].progressValue / 100)}`}
-                        strokeLinecap="round"
-                        className="text-primary"
-                        initial={{ strokeDashoffset: 2 * Math.PI * 56 }}
-                        animate={{ strokeDashoffset: 2 * Math.PI * 56 * (1 - improvementInsights[activeInsight].progressValue / 100) }}
+            {/* Performance Metrics Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto mb-8">
+              {improvementInsights.map((insight, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className={`p-4 rounded-xl border-2 transition-all cursor-pointer ${
+                    activeInsight === index 
+                      ? 'bg-card border-primary shadow-lg scale-105' 
+                      : 'bg-card/50 border-border hover:border-primary/50 hover:bg-card/70'
+                  }`}
+                  onClick={() => setActiveInsight(index)}
+                  data-testid={`card-metric-${index}`}
+                >
+                  {/* Metric Header */}
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-xs font-semibold text-primary">
+                      {insight.improvement}
+                    </span>
+                    <Activity className="w-4 h-4 text-muted-foreground" />
+                  </div>
+
+                  {/* Progress Bar */}
+                  <div className="mb-3">
+                    <div className="flex justify-between items-baseline mb-1">
+                      <h4 className="font-heading text-sm font-bold">{insight.metric}</h4>
+                      <span className="text-xl font-bold text-primary">{insight.progressValue}%</span>
+                    </div>
+                    <div className="w-full h-1.5 bg-muted rounded-full overflow-hidden">
+                      <motion.div
+                        className="h-full bg-gradient-to-r from-primary to-primary/60 rounded-full"
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${insight.progressValue}%` }}
                         transition={{ duration: 1, ease: "easeOut" }}
                       />
-                    </svg>
-                    <div className="absolute inset-0 flex flex-col items-center justify-center">
-                      <span className="text-3xl font-bold text-primary">
-                        {improvementInsights[activeInsight].progressValue}%
-                      </span>
                     </div>
                   </div>
 
-                  <div className="flex-1 text-center md:text-left">
-                    <h3 className="font-heading text-3xl md:text-4xl font-bold mb-3 flex items-center gap-3 justify-center md:justify-start" data-testid={`text-improvement-${improvementInsights[activeInsight].metric.toLowerCase().replace(/\s+/g, '-')}`}>
-                      <TrendingUp className="w-8 h-8 text-primary" />
-                      {improvementInsights[activeInsight].metric}
-                    </h3>
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 mb-4">
-                      <span className="text-sm font-bold text-primary">
-                        {improvementInsights[activeInsight].improvement} improvement
-                      </span>
-                    </div>
-                  </div>
+                  {/* Insight Details */}
+                  <p className="text-xs text-muted-foreground line-clamp-2">{insight.finding}</p>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Detailed Insight Panel */}
+            <motion.div
+              key={activeInsight}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="max-w-3xl mx-auto bg-card rounded-xl border-2 border-primary/30 p-6"
+            >
+              <div className="flex items-start gap-3 mb-4">
+                <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center flex-shrink-0">
+                  <Target className="w-5 h-5 text-primary" />
                 </div>
-
-                <div className="space-y-4">
-                  <div className="p-4 rounded-xl bg-background/50">
-                    <p className="text-sm text-muted-foreground mb-1">Finding</p>
-                    <p className="text-lg font-medium">
-                      {improvementInsights[activeInsight].finding}
-                    </p>
-                  </div>
-
-                  <motion.div
-                    className="p-4 rounded-xl bg-primary/10 border border-primary/30"
-                    whileHover={{ scale: 1.02 }}
-                  >
-                    <div className="flex items-start gap-3">
-                      <Target className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                      <div>
-                        <p className="text-sm text-primary/80 mb-1">Recommendation</p>
-                        <p className="text-lg font-semibold text-primary">
-                          {improvementInsights[activeInsight].guidance}
-                        </p>
-                      </div>
-                    </div>
-                  </motion.div>
+                <div className="flex-1">
+                  <h3 className="font-heading text-lg font-bold mb-1">
+                    Coaching Recommendation
+                  </h3>
+                  <p className="text-base text-primary font-semibold">
+                    {improvementInsights[activeInsight].guidance}
+                  </p>
                 </div>
-              </motion.div>
-
-              {/* Navigation */}
-              <div className="flex items-center justify-center gap-4 mt-8">
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={() => setActiveInsight((prev) => (prev === 0 ? improvementInsights.length - 1 : prev - 1))}
-                  data-testid="button-insight-prev"
-                >
-                  <ChevronLeft className="w-6 h-6" />
-                </Button>
-
-                <div className="flex gap-2">
-                  {improvementInsights.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setActiveInsight(index)}
-                      className={`w-2 h-2 rounded-full transition-all ${
-                        index === activeInsight ? "bg-primary w-8" : "bg-muted hover:bg-muted-foreground/50"
-                      }`}
-                      data-testid={`button-insight-dot-${index}`}
-                    />
-                  ))}
-                </div>
-
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={() => setActiveInsight((prev) => (prev === improvementInsights.length - 1 ? 0 : prev + 1))}
-                  data-testid="button-insight-next"
-                >
-                  <ChevronRight className="w-6 h-6" />
-                </Button>
               </div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.5 }}
-                className="text-center mt-12"
-              >
-                <p className="text-xl md:text-2xl text-muted-foreground mb-6">
-                  Analyzing human interactions to <span className="text-primary font-semibold">boost sales</span>—one conversation at a time.
-                </p>
-                
-                <Link href="/contact">
-                  <Button size="lg" className="group" data-testid="button-journey-cta">
-                    Book a Meeting
-                    <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </Link>
-              </motion.div>
-            </div>
+              <div className="grid grid-cols-2 gap-3 pt-3 border-t border-border">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-primary" />
+                  <span className="text-xs">Real-time coaching</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Users className="w-4 h-4 text-primary" />
+                  <span className="text-xs">Team analytics</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <BarChart3 className="w-4 h-4 text-primary" />
+                  <span className="text-xs">Measurable results</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Mic className="w-4 h-4 text-primary" />
+                  <span className="text-xs">Voice intelligence</span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* CTA Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="text-center mt-8"
+            >
+              <p className="text-lg md:text-xl text-muted-foreground mb-6">
+                Analyzing human interactions to <span className="text-primary font-semibold">boost sales</span>—one conversation at a time.
+              </p>
+              
+              <Link href="/contact">
+                <Button size="lg" className="group" data-testid="button-journey-cta">
+                  Book a Meeting
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+            </motion.div>
           </div>
         </motion.section>
       </div>
