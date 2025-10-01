@@ -35,7 +35,7 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
           className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto"
         >
-          Transform sales conversations with behavioral guidance that reads human signals and shapes actions in the moment.
+          Analyzing human interactions to <span className="text-primary font-semibold">boost sales</span> with real-time behavioral guidance.
         </motion.p>
       </div>
     </motion.section>

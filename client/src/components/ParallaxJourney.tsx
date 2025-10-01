@@ -106,12 +106,21 @@ export default function ParallaxJourney() {
         >
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.h2 
-              className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-12"
+              className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8"
               data-testid="text-section-analysis"
             >
-              We read<br />
-              <span className="text-primary">five signals.</span>
+              We analyze<br />
+              <span className="text-primary">human interactions.</span>
             </motion.h2>
+            
+            <motion.p 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="text-lg md:text-xl text-muted-foreground mb-12 max-w-3xl mx-auto"
+            >
+              Five key signals that reveal what customers really think—helping sales reps close more deals.
+            </motion.p>
 
             <div className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-8 max-w-5xl mx-auto">
               {analysisModalities.map((modality, index) => (
@@ -148,12 +157,21 @@ export default function ParallaxJourney() {
         >
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.h2 
-              className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-16"
+              className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8"
               data-testid="text-section-guidance"
             >
               We guide<br />
-              <span className="text-primary">in the moment.</span>
+              <span className="text-primary">to close deals.</span>
             </motion.h2>
+            
+            <motion.p 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="text-lg md:text-xl text-muted-foreground mb-16 max-w-3xl mx-auto"
+            >
+              Real-time alerts that turn customer signals into sales opportunities.
+            </motion.p>
 
             <div className="space-y-8 max-w-3xl mx-auto">
               {guidanceExamples.map((example, index) => (
@@ -203,12 +221,21 @@ export default function ParallaxJourney() {
         >
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <motion.h2 
-              className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-16"
+              className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8"
               data-testid="text-section-improvement"
             >
-              We shape<br />
-              <span className="text-primary">every conversation.</span>
+              We boost<br />
+              <span className="text-primary">sales performance.</span>
             </motion.h2>
+            
+            <motion.p 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="text-lg md:text-xl text-muted-foreground mb-16 max-w-3xl mx-auto"
+            >
+              Post-meeting insights that transform every rep into a top performer.
+            </motion.p>
 
             <div className="space-y-6 max-w-3xl mx-auto mb-16">
               {improvementInsights.map((insight, index) => (
@@ -243,7 +270,7 @@ export default function ParallaxJourney() {
               className="max-w-3xl mx-auto"
             >
               <p className="text-xl md:text-2xl text-muted-foreground mb-8">
-                Turn instinctive skills into <span className="text-primary font-semibold">measurable, repeatable behaviors</span>.
+                Analyzing human interactions to <span className="text-primary font-semibold">boost sales</span>—one conversation at a time.
               </p>
               
               <Link href="/contact">
