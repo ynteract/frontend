@@ -130,14 +130,14 @@ export default function ParallaxJourney() {
 
   return (
     <div ref={containerRef} className="relative bg-background" style={{ height: "500vh", position: "relative" }}>
-      <div className="sticky top-0 h-screen flex items-center justify-center overflow-y-auto md:overflow-hidden relative">
+      <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden relative">
         
         {/* Section 1: Signal Analysis Lab */}
         <motion.section
           style={{ opacity: opacity1, scale: scale1 }}
-          className="absolute inset-0 flex items-center justify-center overflow-y-auto md:overflow-visible"
+          className="absolute inset-0 flex items-center justify-center overflow-y-auto overflow-x-hidden"
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 md:py-12">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 md:py-12 min-h-full flex flex-col justify-center">
             <motion.h2 
               className="font-heading text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-4 md:mb-6 text-center px-2"
               data-testid="text-section-analysis"
@@ -300,9 +300,9 @@ export default function ParallaxJourney() {
         {/* Section 2: Live Coaching Console */}
         <motion.section
           style={{ opacity: opacity2, scale: scale2 }}
-          className="absolute inset-0 flex items-center justify-center overflow-y-auto md:overflow-visible"
+          className="absolute inset-0 flex items-center justify-center overflow-y-auto overflow-x-hidden"
         >
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 md:py-12">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 md:py-12 min-h-full flex flex-col justify-center">
             <motion.h2 
               className="font-heading text-2xl md:text-4xl lg:text-6xl font-bold tracking-tight mb-4 md:mb-6 text-center px-2"
               data-testid="text-section-guidance"
@@ -456,9 +456,9 @@ export default function ParallaxJourney() {
         {/* Section 3: Performance Dashboard */}
         <motion.section
           style={{ opacity: opacity3, scale: scale3 }}
-          className="absolute inset-0 flex items-center justify-center overflow-y-auto md:overflow-visible"
+          className="absolute inset-0 flex items-center justify-center overflow-y-auto overflow-x-hidden"
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 md:py-12">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-8 md:py-12 min-h-full flex flex-col justify-center">
             <motion.h2 
               className="font-heading text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-3 md:mb-4 text-center px-2"
               data-testid="text-section-improvement"
