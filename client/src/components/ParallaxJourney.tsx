@@ -106,16 +106,16 @@ export default function ParallaxJourney() {
 
   return (
     <div ref={containerRef} className="relative bg-background" style={{ height: "500vh", position: "relative" }}>
-      <div className="sticky top-0 h-screen flex items-center justify-center overflow-visible relative">
+      <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden relative">
         
         {/* Section 1: Signal Analysis Lab */}
         <motion.section
           style={{ opacity: opacity1, scale: scale1 }}
-          className="absolute inset-0 flex items-center justify-center px-4"
+          className="absolute inset-0 flex items-center justify-center"
         >
-          <div className="max-w-7xl mx-auto w-full">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <motion.h2 
-              className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-12 text-center"
+              className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8 text-center px-4"
               data-testid="text-section-analysis"
             >
               We analyze<br />
