@@ -622,12 +622,12 @@ export default function ParallaxJourney() {
                 Analyzing human interactions to <span className="text-primary font-semibold">boost sales</span>—one conversation at a time.
               </p>
               
-              <Link href="/contact">
+              <a href="mailto:hello@ynteract.io?subject=Meeting%20Request%20-%20Ynteract%20Demo&body=Hi%20Ynteract%20team%2C%0A%0AI'd%20like%20to%20schedule%20a%20meeting%20to%20discuss%3A%0A%0ACompany%20Name%3A%20%0AIndustry%3A%20%0ANumber%20of%20Sales%20Reps%3A%20%0A%0AWhat%20I%27m%20interested%20in%3A%0A-%20%0A%0APreferred%20meeting%20time%3A%20%0A%0AThank%20you%21">
                 <Button size="lg" className="group" data-testid="button-journey-cta">
                   Book a Meeting
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
-              </Link>
+              </a>
             </motion.div>
           </div>
         </motion.section>

@@ -37,11 +37,11 @@ export default function Navigation() {
                 </Button>
               </Link>
             ))}
-            <Link href="/contact">
+            <a href="mailto:hello@ynteract.io?subject=Meeting%20Request%20-%20Ynteract%20Demo&body=Hi%20Ynteract%20team%2C%0A%0AI'd%20like%20to%20schedule%20a%20meeting%20to%20discuss%3A%0A%0ACompany%20Name%3A%20%0AIndustry%3A%20%0ANumber%20of%20Sales%20Reps%3A%20%0A%0AWhat%20I%27m%20interested%20in%3A%0A-%20%0A%0APreferred%20meeting%20time%3A%20%0A%0AThank%20you%21">
               <Button size="sm" className="ml-4" data-testid="button-demo">
                 Book a Meeting
               </Button>
-            </Link>
+            </a>
           </div>
 
           <Button
@@ -69,11 +69,11 @@ export default function Navigation() {
                 </Button>
               </Link>
             ))}
-            <Link href="/contact">
+            <a href="mailto:hello@ynteract.io?subject=Meeting%20Request%20-%20Ynteract%20Demo&body=Hi%20Ynteract%20team%2C%0A%0AI'd%20like%20to%20schedule%20a%20meeting%20to%20discuss%3A%0A%0ACompany%20Name%3A%20%0AIndustry%3A%20%0ANumber%20of%20Sales%20Reps%3A%20%0A%0AWhat%20I%27m%20interested%20in%3A%0A-%20%0A%0APreferred%20meeting%20time%3A%20%0A%0AThank%20you%21" className="w-full">
               <Button className="w-full" onClick={() => setMobileMenuOpen(false)} data-testid="button-mobile-demo">
                 Book a Meeting
               </Button>
-            </Link>
+            </a>
           </div>
         )}
       </div>
