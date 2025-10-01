@@ -1,7 +1,8 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { Eye, Activity, Mic, MessageSquare, Brain, Zap, TrendingUp, Target } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import { Eye, Activity, Mic, MessageSquare, Brain, Zap, TrendingUp, Target, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Link } from "wouter";
 
 export default function ParallaxJourney() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -13,134 +14,127 @@ export default function ParallaxJourney() {
   const analysisModalities = [
     {
       icon: Eye,
-      title: "Facial Expressions & Eye Contact",
-      description: "Track customer reactions in real-time: smiles, frowns, eye contact patterns. Detect engagement or concern instantly.",
-      color: "from-primary/20 to-primary/5",
+      title: "Facial Expressions",
+      subtitle: "& Eye Contact",
+      description: "Customer reactions in real-time",
+      detail: "Smiles, frowns, eye contact patterns",
       delay: 0
     },
     {
       icon: Activity,
       title: "Body Posture",
-      description: "Monitor leaning forward (engaged) or backward (disengaged). Catch subtle shifts that reveal customer comfort levels.",
-      color: "from-primary/25 to-primary/8",
+      subtitle: "& Gestures",
+      description: "Physical engagement signals",
+      detail: "Leaning forward, shifting back",
       delay: 0.1
     },
     {
       icon: Mic,
       title: "Vocal Tone",
-      description: "Analyze confidence, warmth, and pacing. Detect when tone drops or rises, signaling emotional shifts.",
-      color: "from-primary/30 to-primary/10",
+      subtitle: "& Pacing",
+      description: "Confidence and emotion",
+      detail: "Tone drops, warmth, speaking speed",
       delay: 0.2
     },
     {
       icon: MessageSquare,
       title: "Word Choice",
-      description: "Measure speaking time ratios and strategic questioning. Ensure reps listen more than they talk.",
-      color: "from-primary/35 to-primary/12",
+      subtitle: "& Speaking Time",
+      description: "Strategic questioning",
+      detail: "Listen vs. talk ratios",
       delay: 0.3
     },
     {
       icon: Brain,
       title: "Multimodal Fusion",
-      description: "Combine all signals into one coherent understanding of the conversation's true dynamics.",
-      color: "from-primary/40 to-primary/15",
+      subtitle: "",
+      description: "One coherent understanding",
+      detail: "All signals combined seamlessly",
       delay: 0.4
     }
   ];
 
-  const guidanceFeatures = [
+  const guidanceExamples = [
     {
-      icon: Zap,
-      title: "Real-Time Alerts",
-      description: "\"Customer leaned back, disengaged\" - prompts rep to re-engage with an open-ended question.",
-      example: "During the meeting"
+      alert: "Customer leaned back",
+      action: "Re-engage with open-ended question"
     },
     {
-      icon: Target,
-      title: "Behavioral Prompts",
-      description: "\"Tone dropped in confidence\" - encourages adjustment in delivery, slowing speech, or pausing.",
-      example: "In the moment"
+      alert: "Tone dropped in confidence",
+      action: "Slow speech, pause for emphasis"
     },
     {
-      icon: Activity,
-      title: "Posture Guidance",
-      description: "\"Shift body posture toward customer\" - strengthen physical connection when disengagement is detected.",
-      example: "Instant coaching"
+      alert: "Eye contact decreased",
+      action: "Shift body posture toward customer"
     }
   ];
 
-  const improvementMetrics = [
+  const improvementInsights = [
     {
-      label: "Speaking Time Balance",
-      description: "You spoke 72% of the time—consider pausing after product explanations to let customers process.",
-      icon: MessageSquare
+      metric: "Speaking Time",
+      finding: "You spoke 72% of the time",
+      guidance: "Pause after product explanations"
     },
     {
-      label: "Engagement Moments",
-      description: "Customer smiled and leaned forward when you emphasized financing options—repeat that framing.",
-      icon: TrendingUp
+      metric: "Engagement Peak",
+      finding: "Customer leaned forward at financing mention",
+      guidance: "Repeat that framing approach"
     },
     {
-      label: "Trust Building",
-      description: "Eye contact increased 40% when you slowed your pace—maintain that rhythm in future conversations.",
-      icon: Eye
+      metric: "Trust Signal",
+      finding: "Eye contact increased 40% when you slowed pace",
+      guidance: "Maintain that rhythm"
     }
   ];
 
-  const opacity1 = useTransform(scrollYProgress, [0, 0.2, 0.4], [1, 0.5, 0]);
-  const opacity2 = useTransform(scrollYProgress, [0.2, 0.4, 0.6], [0, 1, 0]);
-  const opacity3 = useTransform(scrollYProgress, [0.5, 0.7, 1], [0, 1, 1]);
+  const opacity1 = useTransform(scrollYProgress, [0, 0.15, 0.35], [1, 1, 0]);
+  const opacity2 = useTransform(scrollYProgress, [0.3, 0.45, 0.65], [0, 1, 0]);
+  const opacity3 = useTransform(scrollYProgress, [0.6, 0.75, 1], [0, 1, 1]);
 
-  const y1 = useTransform(scrollYProgress, [0, 0.3], [0, -100]);
-  const y2 = useTransform(scrollYProgress, [0.3, 0.6], [100, 0]);
-  const y3 = useTransform(scrollYProgress, [0.6, 1], [100, 0]);
+  const scale1 = useTransform(scrollYProgress, [0, 0.35], [1, 0.9]);
+  const scale2 = useTransform(scrollYProgress, [0.3, 0.65], [0.9, 1]);
+  const scale3 = useTransform(scrollYProgress, [0.6, 1], [0.9, 1]);
 
   return (
-    <div ref={containerRef} className="relative" style={{ height: "400vh" }}>
-      <div className="sticky top-0 h-screen overflow-hidden">
+    <div ref={containerRef} className="relative bg-background" style={{ height: "500vh" }}>
+      <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
+        
         {/* Section 1: Analysis */}
         <motion.section
-          style={{ opacity: opacity1, y: y1 }}
+          style={{ opacity: opacity1, scale: scale1 }}
           className="absolute inset-0 flex items-center justify-center"
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-            <div className="text-center mb-16">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-              >
-                <h2 className="font-heading text-5xl md:text-6xl font-bold mb-6">
-                  We Analyze <span className="text-primary">Five Key Signals</span>
-                </h2>
-                <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                  While your reps focus on the conversation, our AI monitors every human signal that matters
-                </p>
-              </motion.div>
-            </div>
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <motion.h2 
+              className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-12"
+              data-testid="text-section-analysis"
+            >
+              We read<br />
+              <span className="text-primary">five signals.</span>
+            </motion.h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-8 max-w-5xl mx-auto">
               {analysisModalities.map((modality, index) => (
                 <motion.div
                   key={modality.title}
-                  initial={{ opacity: 0, y: 50 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: modality.delay, duration: 0.5 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ delay: modality.delay }}
+                  className="text-center"
                 >
-                  <Card className="h-full hover-elevate border-primary/20">
-                    <CardContent className="p-6">
-                      <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${modality.color} flex items-center justify-center mb-4`}>
-                        <modality.icon className="w-7 h-7 text-primary" />
-                      </div>
-                      <h3 className="font-heading text-xl font-bold mb-3" data-testid={`text-analysis-${modality.title.toLowerCase().replace(/\s+/g, '-')}`}>
-                        {modality.title}
-                      </h3>
-                      <p className="text-muted-foreground text-sm leading-relaxed">
-                        {modality.description}
-                      </p>
-                    </CardContent>
-                  </Card>
+                  <div className="mb-4 flex justify-center">
+                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-primary/10 flex items-center justify-center">
+                      <modality.icon className="w-8 h-8 md:w-10 md:h-10 text-primary" />
+                    </div>
+                  </div>
+                  <h3 className="font-heading text-base md:text-lg font-bold mb-1" data-testid={`text-analysis-${modality.title.toLowerCase().replace(/\s+/g, '-')}`}>
+                    {modality.title}
+                  </h3>
+                  {modality.subtitle && (
+                    <p className="text-xs md:text-sm text-muted-foreground mb-2">{modality.subtitle}</p>
+                  )}
+                  <p className="text-xs md:text-sm text-muted-foreground/80">{modality.detail}</p>
                 </motion.div>
               ))}
             </div>
@@ -149,116 +143,115 @@ export default function ParallaxJourney() {
 
         {/* Section 2: Guidance */}
         <motion.section
-          style={{ opacity: opacity2, y: y2 }}
+          style={{ opacity: opacity2, scale: scale2 }}
           className="absolute inset-0 flex items-center justify-center"
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-            <div className="text-center mb-16">
-              <h2 className="font-heading text-5xl md:text-6xl font-bold mb-6">
-                We Guide <span className="text-primary">In Real Time</span>
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Subtle alerts that coach behavior in the moment—turning insights into immediate action
-              </p>
-            </div>
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <motion.h2 
+              className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-16"
+              data-testid="text-section-guidance"
+            >
+              We guide<br />
+              <span className="text-primary">in the moment.</span>
+            </motion.h2>
 
-            <div className="grid md:grid-cols-3 gap-8">
-              {guidanceFeatures.map((feature, index) => (
+            <div className="space-y-8 max-w-3xl mx-auto">
+              {guidanceExamples.map((example, index) => (
                 <motion.div
-                  key={feature.title}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
+                  key={example.alert}
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
                   transition={{ delay: index * 0.15 }}
                   className="relative"
                 >
-                  <div className="border border-primary/30 rounded-2xl p-8 bg-gradient-to-br from-primary/10 to-transparent hover-elevate">
-                    <div className="absolute -top-4 left-8">
-                      <span className="bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold">
-                        {feature.example}
-                      </span>
+                  <div className="flex flex-col md:flex-row items-center justify-between gap-6 p-8 rounded-2xl bg-card/30 border border-primary/20">
+                    <div className="flex-1 text-left">
+                      <div className="inline-block px-3 py-1 rounded-full bg-primary/20 text-primary text-sm font-semibold mb-3">
+                        Alert
+                      </div>
+                      <p className="text-lg md:text-xl font-medium">{example.alert}</p>
                     </div>
-                    <feature.icon className="w-12 h-12 text-primary mb-6 mt-4" />
-                    <h3 className="font-heading text-2xl font-bold mb-4" data-testid={`text-guidance-${feature.title.toLowerCase().replace(/\s+/g, '-')}`}>
-                      {feature.title}
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed italic">
-                      "{feature.description}"
-                    </p>
+                    <ArrowRight className="w-6 h-6 text-primary hidden md:block" />
+                    <div className="flex-1 text-left md:text-right">
+                      <div className="inline-block px-3 py-1 rounded-full bg-primary text-primary-foreground text-sm font-semibold mb-3">
+                        Action
+                      </div>
+                      <p className="text-lg md:text-xl font-medium">{example.action}</p>
+                    </div>
                   </div>
                 </motion.div>
               ))}
             </div>
 
-            <div className="mt-16 text-center">
-              <div className="inline-block border border-primary/30 rounded-2xl p-8 bg-card/50 backdrop-blur-sm">
-                <p className="text-lg text-muted-foreground max-w-2xl">
-                  <span className="text-primary font-semibold">These nudges create immediate behavioral corrections</span>—slowing speech, increasing eye contact, shifting body posture toward the customer—that strengthen trust.
-                </p>
-              </div>
-            </div>
+            <motion.p 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5 }}
+              className="text-lg md:text-xl text-muted-foreground mt-16 max-w-3xl mx-auto"
+            >
+              Subtle nudges that create <span className="text-primary font-semibold">immediate behavioral corrections</span> and strengthen trust.
+            </motion.p>
           </div>
         </motion.section>
 
         {/* Section 3: Improvement */}
         <motion.section
-          style={{ opacity: opacity3, y: y3 }}
+          style={{ opacity: opacity3, scale: scale3 }}
           className="absolute inset-0 flex items-center justify-center"
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-            <div className="text-center mb-16">
-              <h2 className="font-heading text-5xl md:text-6xl font-bold mb-6">
-                We Drive <span className="text-primary">Continuous Improvement</span>
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                After meetings, performance replays turn abstract coaching into specific, repeatable behaviors
-              </p>
-            </div>
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <motion.h2 
+              className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-16"
+              data-testid="text-section-improvement"
+            >
+              We shape<br />
+              <span className="text-primary">every conversation.</span>
+            </motion.h2>
 
-            <div className="space-y-6 max-w-4xl mx-auto">
-              {improvementMetrics.map((metric, index) => (
+            <div className="space-y-6 max-w-3xl mx-auto mb-16">
+              {improvementInsights.map((insight, index) => (
                 <motion.div
-                  key={metric.label}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.2 }}
+                  key={insight.metric}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ delay: index * 0.15 }}
+                  className="p-6 md:p-8 rounded-2xl bg-card/30 border border-primary/20 text-left"
                 >
-                  <Card className="hover-elevate border-primary/20">
-                    <CardContent className="p-6">
-                      <div className="flex items-start gap-6">
-                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/30 to-primary/10 flex items-center justify-center flex-shrink-0">
-                          <metric.icon className="w-6 h-6 text-primary" />
-                        </div>
-                        <div className="flex-1">
-                          <h3 className="font-heading text-xl font-bold mb-2" data-testid={`text-improvement-${metric.label.toLowerCase().replace(/\s+/g, '-')}`}>
-                            {metric.label}
-                          </h3>
-                          <p className="text-muted-foreground leading-relaxed">
-                            {metric.description}
-                          </p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
+                  <div className="flex items-start justify-between gap-4 mb-3">
+                    <h3 className="font-heading text-xl md:text-2xl font-bold" data-testid={`text-improvement-${insight.metric.toLowerCase().replace(/\s+/g, '-')}`}>
+                      {insight.metric}
+                    </h3>
+                  </div>
+                  <p className="text-base md:text-lg mb-3 text-muted-foreground">
+                    {insight.finding}
+                  </p>
+                  <p className="text-base md:text-lg text-primary font-semibold">
+                    → {insight.guidance}
+                  </p>
                 </motion.div>
               ))}
             </div>
 
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mt-16 text-center"
+              transition={{ delay: 0.5 }}
+              className="max-w-3xl mx-auto"
             >
-              <div className="border border-primary/30 rounded-2xl p-12 bg-gradient-to-br from-primary/5 to-transparent">
-                <h3 className="font-heading text-3xl font-bold mb-4">
-                  Transform "Instinctive" Skills Into Measurable Behaviors
-                </h3>
-                <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                  Sales reps who listen more than they talk, adapt posture when disengagement is detected, modulate tone to maintain confidence and warmth, and use open-ended questions strategically.
-                </p>
-              </div>
+              <p className="text-xl md:text-2xl text-muted-foreground mb-8">
+                Turn instinctive skills into <span className="text-primary font-semibold">measurable, repeatable behaviors</span>.
+              </p>
+              
+              <Link href="/contact">
+                <Button size="lg" className="group" data-testid="button-journey-cta">
+                  Book a Meeting
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
             </motion.div>
           </div>
         </motion.section>

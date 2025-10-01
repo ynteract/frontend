@@ -1,43 +1,43 @@
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Play } from "lucide-react";
-import { Link } from "wouter";
-import heroImage from '@assets/image_1759343543296.png';
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 export default function Hero() {
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"]
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      <div 
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroImage})` }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
+    <motion.section 
+      ref={ref}
+      style={{ opacity, scale }}
+      className="relative h-screen flex items-center justify-center"
+    >
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <motion.h1 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="font-heading text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight mb-8"
+        >
+          AI Coaching.
+          <br />
+          <span className="text-primary">In Real Time.</span>
+        </motion.h1>
+        
+        <motion.p 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+          className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto"
+        >
+          Transform sales conversations with behavioral guidance that reads human signals and shapes actions in the moment.
+        </motion.p>
       </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 text-center">
-        <div className="animate-slide-in">
-          <h1 className="font-heading text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent animate-gradient-shift bg-[length:200%_auto]">
-            AI Coaching for<br />Live Sales Conversations
-          </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-12">
-            Real-time guidance that reads facial expressions, body language, and vocal tone—turning subtle human signals into actionable coaching that <span className="text-primary font-semibold">shapes behavior in the moment</span>.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link href="/contact">
-              <Button size="lg" className="group" data-testid="button-book-demo">
-                Book a Meeting
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </Link>
-            <Link href="/how-it-works">
-              <Button size="lg" variant="outline" className="group backdrop-blur-sm bg-background/20" data-testid="button-how-it-works">
-                <Play className="mr-2 h-5 w-5 group-hover:scale-110 transition-transform" />
-                See How It Works
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </div>
-    </section>
+    </motion.section>
   );
 }
