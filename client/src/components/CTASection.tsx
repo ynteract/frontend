@@ -1,0 +1,36 @@
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+import { Link } from "wouter";
+
+export default function CTASection() {
+  return (
+    <section className="py-24 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto text-center">
+        <div className="relative">
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-primary/30 to-primary/20 blur-3xl" />
+          <div className="relative border border-primary/30 rounded-2xl p-12 bg-card/50 backdrop-blur-sm">
+            <h2 className="font-heading text-4xl md:text-5xl font-bold mb-6">
+              Start seeing the <span className="text-primary">why</span> today
+            </h2>
+            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Join leading organizations using ynteract to transform communication insights into meaningful results.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/contact">
+                <Button size="lg" className="group animate-pulse-glow" data-testid="button-cta-demo">
+                  Book a Demo
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+              <Link href="/how-it-works">
+                <Button size="lg" variant="outline" data-testid="button-cta-learn">
+                  Learn More
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
