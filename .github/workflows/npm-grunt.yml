@@ -30,7 +30,7 @@ jobs:
       - name: Build
         run: |
           if [ "${{ matrix.node-version }}" = "22.x" ]; then
-            npx vite build --base=/frontend/
+            npx vite build
           else
             npm run build
           fi
